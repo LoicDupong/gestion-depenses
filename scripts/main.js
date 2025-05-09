@@ -53,16 +53,16 @@ btnAdd.addEventListener('click', function (e){
         setTimeout(() => {
             errorHTML.innerHTML = ``
         }, "2000");
-    } else if (depensesTab.length <= 0) {
+    } else if (inputDesc.value && inputDate.value && inputCategorie.value) {
+        addDepense();
+        inputDesc.value = inputMontant.value = inputDate.value = inputCategorie.value = "";
+        errorHTML.innerHTML = ``;
+    } else {
         errorHTML.textContent = `Veuillez remplir tous les champs...`
         setTimeout(() => {
-            errorHTML.innerHTML = `🥝 Ma liste de dépenses est vide.`
+            errorHTML.innerHTML = ``
         }, "2000");
-    } else if (inputDesc.value && inputDate.value && inputCategorie.value && inputCategorie.value !== 'placeholder') {
-        addDepense();
-        inputDesc.value = inputMontant.value = inputDate.value ="";
-        inputCategorie.value = "placeholder";
-    } 
+    }
     inputDesc.select();
 })
 
