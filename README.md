@@ -24,4 +24,4 @@ Petite application web permettant de suivre facilement ses dépenses quotidienne
 Récapitulatif et mise en pratique des notions DOM, événements, tableaux, fonctions et UI claire.
 
 ## 📷 Aperçu
-[(Lien vers la démo ou capture ici)](https://loicdupong.github.io/gestion-depenses/)
+[(Lien vers ma page)](https://loicdupong.github.io/gestion-depenses/)
