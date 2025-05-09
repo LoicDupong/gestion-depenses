@@ -1,0 +1,109 @@
+body{
+    background-color: #faf3f4;
+}
+.wrapper{
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    padding-top: 2rem;
+
+    &--list{
+        background-color: white;
+        box-shadow: 5px 5px 10px hsla(271, 69%, 15%, 0.274);
+        border-radius: 15px;
+        padding: 2rem 1rem;
+        width: 100%;
+
+        & ul{
+            text-align: left;
+            padding: 0 2rem;
+            margin-top: 1rem;
+        }
+
+        & li{
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 1rem;
+            text-transform: capitalize;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #ddd4d5;
+        }
+    }
+}
+
+form{
+    margin: auto;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+}
+
+label{
+    text-align: left;
+    margin: 1rem 0 .5rem;
+}
+
+input, .btn, select{
+    padding: 1rem;
+    background-color: rgba(240, 248, 255, 0.664);
+    box-shadow: 5px 5px 10px hsla(271, 69%, 15%, 0.274);
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+}
+
+
+input:focus{
+    outline: 2px solid rgb(76, 175, 107);
+    box-shadow: 3px 3px 18px hsla(271, 69%, 15%, 0.5);
+}
+
+input::selection {
+    background: rgb(76, 175, 107);
+    color: #fff;
+  }
+
+.btn{
+    background-color: rgba(182, 250, 203, 0.747);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 1rem;
+    padding: 1rem 1.5rem;
+    transition: .3s all ease-in-out;
+    cursor: pointer;
+
+    &--delete{
+        color: red;
+        font-size: 22px;
+        cursor: pointer;
+        transition: .3s all ease-in-out;
+
+        &:hover{
+            color: rgb(110, 3, 3);
+        }
+    }
+}
+
+.btn:hover{
+    background-color: rgba(54, 75, 61, 0.747);
+    color: white;
+}
+
+h2 {
+    margin-bottom: 1rem;
+    & i{
+    margin-right: 1rem;
+}
+}
+
+
+.error{
+    color: red;
+    font-size: 20px;
+    margin-top: 1rem;
+}

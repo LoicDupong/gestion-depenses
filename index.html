@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS | Gestion dépenses</title>
+    <link rel="stylesheet" href="./styles/styles.min.css">
+    <script src="https://kit.fontawesome.com/4a8e7b5374.js" crossorigin="anonymous"></script>
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Gestion des dépenses</h1>
+        <form action="#">
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description" placeholder="Description de la dépense" autofocus>
+
+            <label for="montant">Montant</label>
+            <input type="text" name="montant" id="montant" placeholder="Montant de la dépense" autofocus>
+            
+            <label for="categorie">Catégorie</label>
+            <select name="categorie" id="categorie">Choisissez la catégorie
+                <option value="alimentation">Alimentaion</option>
+                <option value="transport">Transport</option>
+                <option value="logement">Logement</option>
+                <option value="divertissement">Divertissement</option>
+                <option value="autre">Autre</option>
+            </select>
+            <button class="btn btn--add">Ajouter <i class="fa-solid fa-plus"></i></button>
+        </form>
+        <div class="wrapper wrapper--list">
+            <h2><i class="fa-solid fa-list-ul"></i>Mes dépenses</h2>
+            <span class="error"></span>
+            <ul class="course-array"></ul>
+        </div>
+    </div>
+</body>
+</html>
