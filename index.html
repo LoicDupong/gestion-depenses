@@ -6,7 +6,7 @@
     <title>JS | Gestion dépenses</title>
     <link rel="stylesheet" href="./styles/styles.min.css">
     <script src="https://kit.fontawesome.com/4a8e7b5374.js" crossorigin="anonymous"></script>
-    <script src="js/main.js" defer></script>
+    <script src="scripts/main.js" defer></script>
 </head>
 <body>
     <div class="wrapper">
@@ -16,10 +16,11 @@
             <input type="text" name="description" id="description" placeholder="Description de la dépense" autofocus>
 
             <label for="montant">Montant</label>
-            <input type="text" name="montant" id="montant" placeholder="Montant de la dépense" autofocus>
+            <input type="number" name="montant" id="montant" placeholder="Montant de la dépense" autofocus>
             
             <label for="categorie">Catégorie</label>
-            <select name="categorie" id="categorie">Choisissez la catégorie
+            <select name="categorie" id="categorie" aria-placeholder="Choisissez la catégorie">
+                <option value="placeholder" disabled selected>Choisissez la catégorie</option>
                 <option value="alimentation">Alimentaion</option>
                 <option value="transport">Transport</option>
                 <option value="logement">Logement</option>
@@ -31,7 +32,7 @@
         <div class="wrapper wrapper--list">
             <h2><i class="fa-solid fa-list-ul"></i>Mes dépenses</h2>
             <span class="error"></span>
-            <ul class="course-array"></ul>
+            <ul class="depenses-array"></ul>
         </div>
     </div>
 </body>
