@@ -1,4 +1,5 @@
 const depensesTab = [];
+const montantTab = [];
 
 let inputDesc = document.getElementById('description');
 let inputMontant = document.getElementById('montant');
@@ -8,9 +9,16 @@ let inputDate = document.getElementById('date');
 const btnAdd = document.querySelector('.btn--add');
 const btnDelete = document.querySelector('.btn--delete');
 const depensesHTML = document.querySelector('.depenses-array');
-
 const errorHTML = document.querySelector('.error');
+const counterHTML = document.querySelector('.counter')
 errorHTML.innerHTML = `🥝 Ma liste de dépenses est vide.`
+
+const totalHTML = document.querySelector('.total');
+let total = 0;
+totalHTML.textContent = total;
+
+let i = 0;
+counterHTML.textContent = i;
 
 // =====================================================
 // =========== ✅✅ Ajouter un élément ✅✅===========
@@ -28,10 +36,12 @@ function addDepense() {
     const suffix = sameDescCount > 0 ? `-${sameDescCount + 1}` : "";
     const index = `${desc}${suffix}`;
 
-    // Push le nouveau tableau dans le tableau global 
+    // Push 
     // ==============================================
     depensesTab.push([desc, montant, categorie, date]);
-    
+    montantTab.push((Number)(inputMontant.value));
+
+
     // Print le nouvel élément dans l'HTML 
     // ===================================
     let lastElement = depensesTab[depensesTab.length - 1];
@@ -40,6 +50,15 @@ function addDepense() {
     <i class="fa-solid fa-square-minus btn--delete"></i>
     </li>`;
 
+    // Incrémentation du nombre de dépenses 
+    // ===================================
+    counterHTML.textContent = `${i}`;
+    i++;
+
+    // Calcul du total des dépenses
+    // ===================================
+    total = montantTab.reduce((sum, nbr) => sum + nbr, 0);
+    totalHTML.innerHTML = total;
 }
 
 // =====================================================
@@ -53,17 +72,21 @@ btnAdd.addEventListener('click', function (e){
         setTimeout(() => {
             errorHTML.innerHTML = ``
         }, "2000");
+        inputMontant.select();
+
     } else if (inputDesc.value && inputDate.value && inputCategorie.value) {
         addDepense();
         inputDesc.value = inputMontant.value = inputDate.value = inputCategorie.value = "";
         errorHTML.innerHTML = ``;
+        inputDesc.select();
+
     } else {
         errorHTML.textContent = `Veuillez remplir tous les champs...`
         setTimeout(() => {
             errorHTML.innerHTML = ``
         }, "2000");
+        inputDesc.select();
     }
-    inputDesc.select();
 })
 
 
