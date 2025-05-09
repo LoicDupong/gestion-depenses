@@ -7,6 +7,12 @@ body{
     text-align: center;
     padding-top: 2rem;
 
+    &--categories{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
     &--list{
         background-color: white;
         box-shadow: 5px 5px 10px hsla(271, 69%, 15%, 0.274);
@@ -123,7 +129,7 @@ h2 {
 }
 
 .divertissement{
-    color: yellow;
+    color: #d9d943;
 }
 
 .autre{
