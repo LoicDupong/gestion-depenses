@@ -32,9 +32,7 @@ function addDepense() {
 
     // Vérifier si doublon 
     // ====================
-    const sameDescCount = depensesTab.filter(d => d[0] === desc).length;
-    const suffix = sameDescCount > 0 ? `-${sameDescCount + 1}` : "";
-    const index = `${desc}${suffix}`;
+    const index = depensesTab.length;
 
     // Push 
     // ==============================================
@@ -52,14 +50,27 @@ function addDepense() {
 
     // Incrémentation du nombre de dépenses 
     // ===================================
-    counterHTML.textContent = `${i}`;
     i++;
+    counterHTML.textContent = `${i}`;
+    
 
     // Calcul du total des dépenses
     // ===================================
     total = montantTab.reduce((sum, nbr) => sum + nbr, 0);
     totalHTML.innerHTML = total;
 }
+
+// =====================================================
+// =========== 🥨🥨 Update index 🥨🥨 ================
+// =====================================================
+
+function updateIndex() {
+    const items = depensesHTML.querySelectorAll('li');
+    items.forEach((li, index) => {
+      li.dataset.index = index;
+    });
+}
+
 
 // =====================================================
 // =========== ➕➕ Add On Click ➕➕ ================
@@ -76,6 +87,8 @@ btnAdd.addEventListener('click', function (e){
 
     } else if (inputDesc.value && inputDate.value && inputCategorie.value) {
         addDepense();
+        console.log(montantTab);
+        
         inputDesc.value = inputMontant.value = inputDate.value = inputCategorie.value = "";
         errorHTML.innerHTML = ``;
         inputDesc.select();
@@ -97,13 +110,24 @@ btnAdd.addEventListener('click', function (e){
 depensesHTML.addEventListener('click', function(e){
     if (e.target.classList.contains('btn--delete')){
         e.preventDefault();
-        let index = e.target.parentElement.dataset.index;
-        let currentElement = depensesTab.indexOf(index);
-        depensesTab.splice(currentElement, 1);
-        console.log(depensesTab);
+        let index = (Number)(e.target.parentElement.dataset.index);
+        depensesTab.splice(index, 1);
+        montantTab.splice(index, 1);
+        console.log(montantTab);
+        
+
+        // Ajustement du total des dépenses
+        // ===================================
+        total = montantTab.reduce((sum, nbr) => sum + nbr, 0);
+        totalHTML.innerHTML = total;
 
         const li = e.target.parentElement;
         li.remove();
+        updateIndex();
+
+        i--;
+        counterHTML.textContent = `${i}`;
+    
     }
 });
 
