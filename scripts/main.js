@@ -20,15 +20,16 @@ function addDepense() {
     const montant = inputMontant.value.toString() + " €";
     const categorie = inputCategorie.value;
 
+    // Vérifier si doublon =============================================
     const sameDescCount = depensesTab.filter(d => d[0] === desc).length;
     const suffix = sameDescCount > 0 ? `-${sameDescCount + 1}` : "";
     const index = `${desc}${suffix}`;
 
+    // Push le nouveau tableau dans le tableau global ========
     depensesTab.push([desc, montant, categorie]);
     
-
+    // Print le nouvel élément dans l'HTML =============================================
     let lastElement = depensesTab[depensesTab.length - 1];
-
     depensesHTML.innerHTML += 
     `<li data-index="${index}" data-categorie="${lastElement[2]}"> ${lastElement.join(' - ')}
     <i class="fa-solid fa-square-minus btn--delete"></i>
